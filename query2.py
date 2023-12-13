@@ -36,14 +36,13 @@ print('Total time for SQL: ',time.time() - start_time , 'sec')
 
 # === DataFrame ===
 total_time = 0
-for i in range(n_iter):
-    start_time = time.time()
-    result = Crime_Data2.filter(Crime_Data2['Premis Desc'] == 'STREET') \
-        .groupBy('Time OCC') \
-        .agg(F.count('*').alias('crime_total')) \
-        .orderBy(F.col('crime_total').desc())
-    result.count()
-    total_time += time.time() - start_time
+start_time = time.time()
+result = Crime_Data2.filter(Crime_Data2['Premis Desc'] == 'STREET') \
+    .groupBy('Time OCC') \
+    .agg(F.count('*').alias('crime_total')) \
+    .orderBy(F.col('crime_total').desc())
+result.count()
+total_time += time.time() - start_time
 
 result.show()
 print('Average Total time for DataFrame: ', str(total_time/n_iter), 'sec')
