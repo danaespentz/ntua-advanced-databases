@@ -34,9 +34,6 @@ Crime_Data2 = Crime_Data2_from_2020_to_Present.union(Crime_Data2_from_2010_to_20
 # Write Time execution results
 f = open("execution_time.txt", "a")
 
-# Query runtime parameters
-n_iter = 10
-
 # Print number of rows and column types
 print("Number of rows:", Crime_Data.count())
 print("Column types:")
