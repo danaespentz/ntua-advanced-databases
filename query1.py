@@ -24,7 +24,8 @@ sql_str = """
     SELECT 
         year,
         month,
-        crime_total
+        crime_total,
+        row_num AS rank
     FROM 
         RankedCrimeData
     WHERE 
@@ -33,27 +34,28 @@ sql_str = """
         year ASC,
         crime_total DESC 
 """
-
 # Run the query
 start_time = time.time()
 res = spark.sql(sql_str)
 
 # Show the result
 res.show()
+
 print('Total time for SQL: ',time.time() - start_time , 'sec')
 
 # === DataFrame ===
 total_time = 0
+ 
 start_time = time.time()
 windowSpec = Window.partitionBy("year").orderBy(col("crime_total").desc())
 ranked = Crime_Data.groupBy(year("Date Rptd").alias("year"), month("Date Rptd").alias("month")) \
     .agg(count("*").alias("crime_total")) \
     .withColumn("rank", dense_rank().over(windowSpec))
 result = ranked.filter(col("rank") <= 3).orderBy(col("year").asc(), col("crime_total").desc())  
-result.count()
 total_time += time.time() - start_time
 
 result.show()
-print('Average Total time for DataFrame: ', str(total_time/n_iter), 'sec')
-f.write('Average Time for Q1: ' + str(total_time/n_iter) + '\n')
+
+print('Total time for DataFrame: ', total_time, 'sec')
+f.write('Time for Q1: ' + str(total_time) + '\n')
 f.close()
