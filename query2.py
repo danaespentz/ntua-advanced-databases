@@ -36,15 +36,34 @@ print('Total time for SQL: ',time.time() - start_time , 'sec')
 
 # === DataFrame ===
 total_time = 0
+
 start_time = time.time()
 result = Crime_Data2.filter(Crime_Data2['Premis Desc'] == 'STREET') \
-    .groupBy('Time OCC') \
-    .agg(F.count('*').alias('crime_total')) \
-    .orderBy(F.col('crime_total').desc())
+        .groupBy('Time OCC') \
+        .agg(count('*').alias('crime_total')) \
+        .orderBy(col('crime_total').desc())
 result.count()
 total_time += time.time() - start_time
 
 result.show()
-print('Average Total time for DataFrame: ', str(total_time/n_iter), 'sec')
-f.write('Average Time for Q1: ' + str(total_time/n_iter) + '\n')
+print('Total time for DataFrame: ', str(total_time), 'sec')
+f.write('Time for Q2: ' + str(total_time) + '\n')
+
+# === RDD ===
+total_time = 0
+start_time = time.time()
+
+final_rdd = Crime_Data2.rdd.filter(lambda row: row['Premis Desc'] == 'STREET')\
+                        .map(lambda row: (row['Time OCC'], 1))\
+                        .reduceByKey(lambda x, y: x + y)\
+                        .map(lambda x: (x[1], x[0]))\
+                        .sortByKey(False)
+                        
+total_time += time.time() - start_time
+
+for x in final_rdd.collect():
+    print(x)
+
+print('Total time for RDD: ', str(total_time), 'sec')
+f.write('Time for Q3-RDD: ' + str(total_time) + '\n')
 f.close()
