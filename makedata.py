@@ -131,21 +131,18 @@ def select_and_save_columns4(input_file, output_file):
 # Columns to select for Crime_Data files
 crime_columns = ['Date Rptd', 'DATE OCC', 'Vict Age', 'LAT', 'LON']
 
-#select_and_save_columns3('data/Crime_Data_from_2010_to_2019.csv', 'Selected3_Crime_Data_2015.csv')
+# Example usage
+split_columns('data/Crime_Data_from_2010_to_2019.csv', 'Crime_Data_from_2010_to_2019.csv')
+split_columns('data/Crime_Data_from_2020_to_Present.csv', 'Crime_Data_from_2020_to_Present.csv')
+split_columns('data/LAPD_Police_Stations.csv', 'LAPD_Police_Stations.csv')
+
+select_and_save_columns('data/Crime_Data_from_2010_to_2019.csv', 'Selected_Crime_Data_from_2010_to_2019.csv', crime_columns)
+select_and_save_columns('data/Crime_Data_from_2020_to_Present.csv', 'Selected_Crime_Data_from_2020_to_Present.csv', crime_columns)
+
+select_and_save_columns2('data/Crime_Data_from_2010_to_2019.csv', 'Selected2_Crime_Data_from_2010_to_2019.csv', crime_columns)
+select_and_save_columns2('data/Crime_Data_from_2020_to_Present.csv', 'Selected2_Crime_Data_from_2020_to_Present.csv', crime_columns)
+
+select_and_save_columns3('data/Crime_Data_from_2010_to_2019.csv', 'Selected3_Crime_Data_2015.csv')
 
 select_and_save_columns4('data/Crime_Data_from_2010_to_2019.csv', 'Selected4_Crime_Data_from_2010_to_2019.csv')
-#select_and_save_columns4('data/Crime_Data_from_2020_to_Present.csv', 'Selected4_Crime_Data_from_2020_to_Present.csv')
-
-# Select and save columns for 'Crime_Data_from_2010_to_2019.csv'
-#select_and_save_columns('data/Crime_Data_from_2010_to_2019.csv', 'Selected_Crime_Data_from_2010_to_2019.csv', crime_columns)
-
-# Select and save columns for 'Crime_Data_from_2020_to_Present.csv'
-#select_and_save_columns('data/Crime_Data_from_2020_to_Present.csv', 'Selected_Crime_Data_from_2020_to_Present.csv', crime_columns)
-
-#select_and_save_columns2('data/Crime_Data_from_2010_to_2019.csv', 'Selected2_Crime_Data_from_2010_to_2019.csv', crime_columns)
-#select_and_save_columns2('data/Crime_Data_from_2020_to_Present.csv', 'Selected2_Crime_Data_from_2020_to_Present.csv', crime_columns)
-
-# Example usage
-#split_columns('data/Crime_Data_from_2010_to_2019.csv', 'Crime_Data_from_2010_to_2019.csv')
-#split_columns('data/Crime_Data_from_2020_to_Present.csv', 'Crime_Data_from_2020_to_Present.csv')
-#split_columns('data/LAPD_Police_Stations.csv', 'LAPD_Police_Stations.csv')
+select_and_save_columns4('data/Crime_Data_from_2020_to_Present.csv', 'Selected4_Crime_Data_from_2020_to_Present.csv')
