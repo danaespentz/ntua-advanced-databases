@@ -9,13 +9,11 @@ Term project for the course 'Advanced Databases' during 9th semester at NTUA
 ## 👣 Steps
 1. Install Spark + Hadoop (see instructions at [installation](https://colab.research.google.com/drive/1eE5FXf78Vz0KmBK5W8d4EUvEFATrVLmr?usp=drive_link))
 
-2. Get data from https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-    -  https://catalog.data.gov/dataset/crime-data-from-2010-to-2019
-    -  https://catalog.data.gov/dataset/crime-data-from-2020-to-present
-    -  https://data.lacity.org/Public-Safety/Crime-Data-from-2010-to-2019/63jg-8b9z
-    -  https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8
+2. Run `python makedata.py`
+   
+3. Run `python load_data.py`
     
-3. Import the data into HDFS with `hdfs dfs -mkdir /data`
+4. Import the data into HDFS with `hdfs dfs -mkdir /data`
    and for each file `hdfs dfs -copyFromLocal /home/user/ntua-advanced-databases/<filename> /data`
 
 5. Exeute each query with `python query_{1,4}.py`
