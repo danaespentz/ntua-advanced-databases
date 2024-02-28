@@ -9,9 +9,12 @@ Term project for the course 'Advanced Databases' during 9th semester at NTUA
 ## 👣 Steps
 1. Install Spark + Hadoop (see instructions at [installation](https://colab.research.google.com/drive/1eE5FXf78Vz0KmBK5W8d4EUvEFATrVLmr?usp=drive_link))
 
-2. Run `python makedata.py`
-   
-3. Run `python load_data.py`
+2. Download the data from 
+   - https://catalog.data.gov/dataset/crime-data-from-2010-to-2019
+   - https://catalog.data.gov/dataset/crime-data-from-2020-to-present
+   Add the files in the [data]('https://github.com/danaespentz/ntua-advanced-databases/data') directory
+
+3. Run `python makedata.py` and  `python load_data.py`
     
 4. Import the data into HDFS with `hdfs dfs -mkdir /data`
    and for each file `hdfs dfs -copyFromLocal /home/user/ntua-advanced-databases/<filename> /data`
