@@ -13,7 +13,7 @@ Term project for the course 'Advanced Databases' during 9th semester at NTUA
    - https://catalog.data.gov/dataset/crime-data-from-2010-to-2019
    - https://catalog.data.gov/dataset/crime-data-from-2020-to-present
    
-   Add the files in the [data](https://github.com/danaespentz/ntua-advanced-databases/data) directory
+   Add the files in the [data](https://github.com/danaespentz/ntua-advanced-databases/tree/main/data) directory
 
 3. Run `python makedata.py` and  `python load_data.py`
     
