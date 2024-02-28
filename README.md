@@ -18,7 +18,7 @@ Term project for the course 'Advanced Databases' during 9th semester at NTUA
 
 5. Exeute each query with `python query_{1,4}.py`
 
-## ❓Queries
+## Queries
 1. Find, for each year, the top-3 months with highest number of recorded crimes committed. You are asked to print the month, year, number of criminal acts recorded,
    as well as the ranking of the month within the respective year. Results are expected to be sorted in ascending order with respect to the year and descending order
    with respect to the number of crimes.
@@ -30,14 +30,14 @@ Term project for the course 'Advanced Databases' during 9th semester at NTUA
    b. Calculate the number of crimes committed with the use of firearms of any kind and the average distance (in km) of the crime scene to the police station that is located
    closest to the crime scene. The results should appear ordered by year in ascending order. Additionally, calculate the same stats per police station.
 
-## 🗒️ Notes
-#### Our Infrastructure
-- 1 Master Node : 10.0.0.1
+## Notes
+#### Infrastructure
+- Master Node : 10.0.0.1
     - 1 Master (Spark)
     - 1 Worker (Spark)
     - 1 Namenode (HDFS)
     - 1 Datanode (HDFS)
-- 1 Worker Node : 10.0.0.2
+- Worker Node : 10.0.0.2
     - 1 Worker (Spark)
     - 1 Datanode (HDFS)
 
